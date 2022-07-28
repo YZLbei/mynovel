@@ -55,6 +55,7 @@ sharding:
           sql.show: true
         tables:
           book_content:  #book_content表
+            #自增列
             key-generator-column-name: id  #主键
             actual-data-nodes: ds${0}.book_content${0..9}  #数据节点
             #            database-strategy:  #分库策略

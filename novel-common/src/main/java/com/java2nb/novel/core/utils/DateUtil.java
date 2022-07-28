@@ -8,6 +8,7 @@ import java.util.TimeZone;
 
 /**
  * 日期工具
+ * 获取时间，格式化时间
  * @author cd
  */
 public class DateUtil {
