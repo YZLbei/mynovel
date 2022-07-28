@@ -1,26 +1,3 @@
-[![index]( https://s1.ax1x.com/2022/05/17/O5tgbR.png )]( https://curl.qcloud.com/kgMaOjoq )
-
-[![Github stars](https://img.shields.io/github/stars/201206030/novel-plus?logo=github)](https://github.com/201206030/novel-plus)
-[![Github forks](https://img.shields.io/github/forks/201206030/novel-plus?logo=github)](https://github.com/201206030/novel-plus)
-[![Gitee star](https://gitee.com/novel_dev_team/novel-plus/badge/star.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-plus)
-[![Gitee fork](https://gitee.com/novel_dev_team/novel-plus/badge/fork.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-plus)
-
-#### 官网
-
-https://201206030.github.io
-
-#### 学习版
-
-[基于 Spring Boot 3 + Vue 3 开发的前后端分离学习型小说项目。](https://github.com/201206030/novel)
-
-#### 微服务版
-
-[Github](https://github.com/201206030/novel-cloud) | [码云](https://gitee.com/novel_dev_team/novel-cloud)
-
-#### 演示地址
-
-[点击前往](http://47.106.243.172:8888/)
-
 #### 项目介绍
 
 novel-plus 是一个多端（PC、WAP）阅读，功能完善的原创文学 CMS 系统。由前台门户系统、作家后台管理系统、平台后台管理系统和爬虫管理系统等多个子系统构成，包括小说推荐、作品检索、小说排行、小说阅读、小说评论、会员中心、作家专区等功能，支持自定义多模版、可拓展的多种小说内容存储方式（内置数据库分表存储和 TXT 文本存储）、阅读主题切换、多爬虫源自动采集和更新数据、会员充值、订阅模式、新闻发布和实时统计报表。
