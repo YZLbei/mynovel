@@ -28,6 +28,7 @@ public class CrawlNovelApplication {
         SpringApplication.run(CrawlNovelApplication.class);
     }
 
+    //用于指示当bean 包含在SpringApplication 中时应运行的接口
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
