@@ -200,6 +200,7 @@ CREATE TABLE `book_content` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `index_id` bigint(20) DEFAULT NULL COMMENT '目录ID',
   `content` mediumtext COMMENT '小说章节内容',
+  
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_indexId` (`index_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3347665 DEFAULT CHARSET=utf8mb4 COMMENT='小说内容表';

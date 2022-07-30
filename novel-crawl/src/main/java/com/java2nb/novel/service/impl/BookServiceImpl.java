@@ -34,13 +34,14 @@ import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 public class BookServiceImpl implements BookService {
 
     private final CrawlBookMapper bookMapper;
-        
+    //小说类别表
     private final BookCategoryMapper bookCategoryMapper;
-
+    //小说目录表
     private final CrawlBookIndexMapper bookIndexMapper;
 
     private final Map<String, BookContentService> bookContentServiceMap;
 
+    // TODO: 2022/7/30 是什么 ，从哪来的
     @Value("${content.save.storage}")
     private String storageType;
 
@@ -93,6 +94,7 @@ public class BookServiceImpl implements BookService {
                     bookIndex.setStorageType(storageType);
                 });
                 bookIndexMapper.insertMultiple(bookIndexList);
+                // TODO: 2022/7/30 怎么变成value的 
                 bookContentServiceMap.get(storageType).saveBookContent(bookContentList, book.getId());
 
             }
