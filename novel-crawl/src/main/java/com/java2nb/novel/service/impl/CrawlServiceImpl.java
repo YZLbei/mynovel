@@ -58,8 +58,10 @@ public class CrawlServiceImpl implements CrawlService {
 
     private final BookService bookService;
 
+    //缓存
     private final CacheService cacheService;
-
+    
+    //雪花算法，生成64位id
     private final IdWorker idWorker = IdWorker.INSTANCE;
 
 
@@ -92,6 +94,8 @@ public class CrawlServiceImpl implements CrawlService {
     @Override
     public PageBean<CrawlSource> listCrawlByPage(int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
+        //动态sql
+        // TODO: 2022/7/30 render结果是什么 
         SelectStatementProvider render = select(id, sourceName, sourceStatus, createTime, updateTime)
                 .from(crawlSource)
                 .orderBy(updateTime)
@@ -227,6 +231,7 @@ public class CrawlServiceImpl implements CrawlService {
     @Override
     public CrawlSource getCrawlSource(Integer id) {
             Optional<CrawlSource> opt=crawlSourceMapper.selectByPrimaryKey(id);
+            //查询类的对象是否存在
             if(opt.isPresent()) {
                 CrawlSource crawlSource =opt.get();
                 return crawlSource;
@@ -236,6 +241,7 @@ public class CrawlServiceImpl implements CrawlService {
 
     /**
      * 解析分类列表
+     *
      */
     @Override
     public void parseBookList(int catId, RuleBean ruleBean, Integer sourceId) {
@@ -247,15 +253,17 @@ public class CrawlServiceImpl implements CrawlService {
         while (page <= totalPage) {
 
             try {
-
+                // TODO: 2022/7/30 getCatIdRule()是什么意思，分类号?分类号规则？
                 if (StringUtils.isNotBlank(ruleBean.getCatIdRule().get("catId" + catId))) {
                     //拼接分类URL
+                    // TODO: 2022/7/30  getBookListUrl()是什么
                     String catBookListUrl = ruleBean.getBookListUrl()
                             .replace("{catId}", ruleBean.getCatIdRule().get("catId" + catId))
                             .replace("{page}", page + "");
 
                     String bookListHtml = getByHttpClientWithChrome(catBookListUrl);
                     if (bookListHtml != null) {
+                        // TODO: 2022/7/30 图片？ 
                         Pattern bookIdPatten = Pattern.compile(ruleBean.getBookIdPatten());
                         Matcher bookIdMatcher = bookIdPatten.matcher(bookListHtml);
                         boolean isFindBookId = bookIdMatcher.find();
