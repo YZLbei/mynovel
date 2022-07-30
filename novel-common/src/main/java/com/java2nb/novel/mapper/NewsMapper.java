@@ -34,6 +34,7 @@ import org.mybatis.dynamic.sql.util.mybatis3.MyBatis3Utils;
 
 @Mapper
 public interface NewsMapper {
+    //所有属性
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     BasicColumn[] selectList = BasicColumn.columnList(id, catId, catName, sourceName, title, readCount, createTime, createUserId, updateTime, updateUserId, content);
 

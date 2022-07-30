@@ -2,6 +2,7 @@ package com.java2nb.novel.utils;
 
 /**
  * @author Administrator
+ * 常量
  */
 public class Constants {
 

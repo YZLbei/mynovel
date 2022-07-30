@@ -34,7 +34,7 @@ import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 public class BookServiceImpl implements BookService {
 
     private final CrawlBookMapper bookMapper;
-
+        
     private final BookCategoryMapper bookCategoryMapper;
 
     private final CrawlBookIndexMapper bookIndexMapper;
