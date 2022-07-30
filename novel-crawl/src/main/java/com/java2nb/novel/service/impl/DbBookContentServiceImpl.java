@@ -19,6 +19,7 @@ import static org.mybatis.dynamic.sql.SqlBuilder.update;
 @RequiredArgsConstructor
 public class DbBookContentServiceImpl implements BookContentService {
 
+    //自从生成的mapper
     private final BookContentMapper bookContentMapper;
 
     @Override

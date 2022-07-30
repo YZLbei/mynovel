@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// TODO: 2022/7/30 txt 是在哪里出现的
 @Service(value = "txt")
 @RequiredArgsConstructor
 public class FileBookContentServiceImpl implements BookContentService {
 
+    // TODO: 2022/7/30 value来自哪里
     @Value("${content.save.path}")
     private String fileSavePath;
 
