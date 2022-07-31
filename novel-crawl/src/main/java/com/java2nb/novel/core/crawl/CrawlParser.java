@@ -31,6 +31,7 @@ public class CrawlParser {
 
     private static final IdWorker idWorker = IdWorker.INSTANCE;
 
+    //http请求工具
     private static final RestTemplate restTemplate = RestTemplateUtil.getInstance("utf-8");
 
     private static final ThreadLocal<Integer> retryCount = new ThreadLocal<>();
@@ -89,6 +90,7 @@ public class CrawlParser {
                         }
                     }
 
+                    // TODO: 2022/7/31 为什么要分两次 
                     String desc = bookDetailHtml.substring(bookDetailHtml.indexOf(ruleBean.getDescStart()) + ruleBean.getDescStart().length());
                     desc = desc.substring(0, desc.indexOf(ruleBean.getDescEnd()));
                     //过滤掉简介中的特殊标签
@@ -138,6 +140,7 @@ public class CrawlParser {
                 }
             }
         }
+        // TODO: 2022/7/31 这里做了什么 
         handler.handle(book);
     }
 
@@ -153,6 +156,7 @@ public class CrawlParser {
 
         if (indexListHtml != null) {
             if (StringUtils.isNotBlank(ruleBean.getBookIndexStart())) {
+                // TODO: 2022/7/31 之前的url具体值是什么 
                 indexListHtml = indexListHtml.substring(indexListHtml.indexOf(ruleBean.getBookIndexStart()) + ruleBean.getBookIndexStart().length());
             }
 
@@ -181,15 +185,24 @@ public class CrawlParser {
                     int calStart = bookContentUrl.indexOf("{cal_");
                     if (calStart != -1) {
                         //内容页URL需要进行计算才能得到
+                        //结果为{cal_1_1_3？
                         String calStr = bookContentUrl.substring(calStart, calStart + bookContentUrl.substring(calStart).indexOf("}"));
                         String[] calArr = calStr.split("_");
                         int calType = Integer.parseInt(calArr[1]);
                         if (calType == 1) {
                             ///{cal_1_1_3}_{bookId}/{indexId}.html
                             //第一种计算规则，去除第x个参数的最后y个字母
+                            //x=1?
+                            //y=3?
                             int x = Integer.parseInt(calArr[2]);
                             int y = Integer.parseInt(calArr[3]);
+                            // TODO: 2022/7/31 calResult最终结果是什么 
                             String calResult;
+                            // TODO: 2022/7/31  x到底意味着什么
+                            // TODO: 2022/7/31  为什么要去掉最后y个字母
+                            // TODO: 2022/7/31 y的值具体是什么 
+                            // TODO: 2022/7/31 为什么可以用sourceBookId或者sourceIndexId，但是长度都为BookId？IndexId包含BookId吗
+                            
                             if (x == 1) {
                                 calResult = sourceBookId.substring(0, sourceBookId.length() - y);
                             } else {
@@ -200,7 +213,7 @@ public class CrawlParser {
                                 calResult = "0";
 
                             }
-
+                            //把类别替换掉
                             bookContentUrl = bookContentUrl.replace(calStr + "}", calResult);
                         }
 
@@ -210,6 +223,7 @@ public class CrawlParser {
 
                     //查询章节内容
                     String contentHtml = getByHttpClientWithChrome(contentUrl);
+                    // TODO: 2022/7/31 正在手打中是什么 
                     if (contentHtml != null && !contentHtml.contains("正在手打中")) {
                         String content = contentHtml.substring(contentHtml.indexOf(ruleBean.getContentStart()) + ruleBean.getContentStart().length());
                         content = content.substring(0, content.indexOf(ruleBean.getContentEnd()));
@@ -236,7 +250,7 @@ public class CrawlParser {
                             //章节插入
                             //设置目录和章节内容
                             Long indexId = idWorker.nextId();
-                            bookIndex.setId(indexId);
+                            bookIndex.setId(indexId);   
                             bookIndex.setBookId(book.getId());
 
                             bookIndex.setCreateTime(currentDate);

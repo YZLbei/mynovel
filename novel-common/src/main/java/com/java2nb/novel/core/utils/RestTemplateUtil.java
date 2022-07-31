@@ -26,6 +26,7 @@ public class RestTemplateUtil {
 
     @SneakyThrows
     public static RestTemplate getInstance(String charset) {
+        //
         TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
 
         //忽略证书
