@@ -32,7 +32,8 @@ public class StarterListener implements ServletContextListener {
     private final BookService bookService;
 
     private final CrawlService crawlService;
-
+    // TODO: 2022/7/31 这是干嘛的 
+    // TODO: 2022/7/31 这个值来自哪里 
     @Value("${crawl.update.thread}")
     private int updateThreadCount;
 
@@ -40,6 +41,7 @@ public class StarterListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         for (int i = 0; i < updateThreadCount; i++) {
             new Thread(() -> {
+                // TODO: 2022/7/31 看一下在哪里输出（应该是爬虫模块刚启动的时候）
                 log.info("程序启动,开始执行自动更新线程。。。");
                 while (true) {
                     try {
@@ -100,6 +102,7 @@ public class StarterListener implements ServletContextListener {
 
                     if (task != null) {
                         //查询爬虫规则
+                        // TODO: 2022/7/31 sourceId都有什么内容，包括书籍的内容吗 
                         CrawlSource source = crawlService.queryCrawlSource(task.getSourceId());
                         RuleBean ruleBean = new ObjectMapper().readValue(source.getCrawlRule(), RuleBean.class);
 
