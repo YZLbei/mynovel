@@ -27,7 +27,7 @@ public class Generator {
         Configuration config = cp.parseConfiguration(is);
         is.close();
         //当生成的代码重复时，不要覆盖原代码
-        DefaultShellCallback callback = new DefaultShellCallback(false);
+        DefaultShellCallback callback = new DefaultShellCallback(true);
         //创建 MBG
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
         //执行生成代码

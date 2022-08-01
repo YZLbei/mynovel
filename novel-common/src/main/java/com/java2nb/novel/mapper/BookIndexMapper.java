@@ -4,12 +4,10 @@ import static com.java2nb.novel.mapper.BookIndexDynamicSqlSupport.*;
 import static org.mybatis.dynamic.sql.SqlBuilder.*;
 
 import com.java2nb.novel.entity.BookIndex;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Generated;
-
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
@@ -92,7 +90,7 @@ public interface BookIndexMapper {
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     default int deleteByPrimaryKey(Long id_) {
-        return delete(c ->
+        return delete(c -> 
             c.where(id, isEqualTo(id_))
         );
     }

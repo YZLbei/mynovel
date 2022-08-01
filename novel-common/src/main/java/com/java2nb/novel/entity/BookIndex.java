@@ -1,7 +1,7 @@
 package com.java2nb.novel.entity;
 
-import javax.annotation.Generated;
 import java.util.Date;
+import javax.annotation.Generated;
 
 public class BookIndex {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
