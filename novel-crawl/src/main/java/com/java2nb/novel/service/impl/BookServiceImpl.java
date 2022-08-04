@@ -94,7 +94,6 @@ public class BookServiceImpl implements BookService {
                     bookIndex.setStorageType(storageType);
                 });
                 bookIndexMapper.insertMultiple(bookIndexList);
-                // TODO: 2022/7/30 怎么变成value的 
                 bookContentServiceMap.get(storageType).saveBookContent(bookContentList, book.getId());
 
             }
