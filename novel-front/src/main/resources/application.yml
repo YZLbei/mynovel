@@ -65,7 +65,7 @@ book:
   price:
     #字数
     word-count: 1000
-    #价值(屋币)
+    #价值(书币)
     value: 5
 
 
