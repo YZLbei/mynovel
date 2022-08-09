@@ -2,7 +2,7 @@
 novel:
   file:
     endpoint: oss-cn-qingdao.aliyuncs.com #不同的服务器，地址不同
-    key-id: LTAI5tJ6xbjY7UQ13Wuzqg44 #去OSS控制台获取
+    key-id: LTAI5tRaB3uPxZpYH5dDzAD6 #去OSS控制台获取
     key-secret: TAwXVlO4QY4HaKMNBtA58Ep3ZWorSf #去OSS控制台获取
     bucket-name: buketyzl #这个自己创建bucket时的命名，控制台创建也行，代码创建也行
     file-host: pic #文件路径

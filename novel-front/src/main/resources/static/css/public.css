@@ -673,7 +673,8 @@ select {
     background: url(../images/icon_picture_big.png) no-repeat left bottom;
 }
 #maskBox #success {
-    background: #60BBFF url();
+    /*background: #60BBFF url();*/
+    background: #60BBFF;
     display: none;
     width: 60px;
     padding: 0 10px;
