@@ -44,9 +44,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 public class SearchServiceImpl implements SearchService {
-
+    
+    //操作es的客户端
     private final JestClient jestClient;
-
+    //操作es的客户端
     private final RestHighLevelClient restHighLevelClient;
 
     private final String INDEX = "novel";
@@ -148,7 +149,9 @@ public class SearchServiceImpl implements SearchService {
         log.debug(result.getJsonString());
         if (result.isSucceeded()) {
 
+            //序列化
             Map resultMap = new ObjectMapper().readValue(result.getJsonString(), Map.class);
+            // TODO: 2022/8/9 hits是什么 
             if (resultMap.get("hits") != null) {
                 Map hitsMap = (Map) resultMap.get("hits");
                 if (hitsMap.size() > 0 && hitsMap.get("hits") != null) {

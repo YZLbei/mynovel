@@ -7,9 +7,10 @@ public class OrderPay {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;
 
+    //商户订单号
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long outTradeNo;
-
+    //支付宝/微信订单号
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String tradeNo;
 
