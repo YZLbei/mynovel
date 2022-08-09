@@ -7,7 +7,7 @@ Source Host           : localhost:3306
 Source Database       : novel_plus
 
 Target Server Type    : MYSQL
-Target Server Version : 50725
+Target Server Version : 50725d
 File Encoding         : 65001
 
 Date: 2020-05-18 13:59:04

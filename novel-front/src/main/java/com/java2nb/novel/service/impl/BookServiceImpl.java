@@ -65,9 +65,11 @@ public class BookServiceImpl implements BookService {
     /**
      * 本地图片保存路径
      */
+    // TODO: 2022/8/9 那传来的 
     @Value("${pic.save.path}")
     private String picSavePath;
 
+    //es的开关
     @Value("${spring.elasticsearch.enable}")
     private Integer esEnable;
 
