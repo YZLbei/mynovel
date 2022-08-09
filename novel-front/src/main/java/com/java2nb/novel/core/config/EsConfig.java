@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnProperty(prefix = "spring.elasticsearch", name = "enable", havingValue = "1")
 public class EsConfig {
-
+    // TODO: 2022/8/9 是什么 
     @Value("${spring.elasticsearch.jest.uris}")
     private String esUris;
 
