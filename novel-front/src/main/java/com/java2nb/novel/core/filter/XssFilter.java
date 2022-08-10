@@ -43,10 +43,9 @@ public class XssFilter implements Filter {
 
     @SneakyThrows
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
         HttpServletRequest req = (HttpServletRequest) request;
-                if (handleExcludeURL(req)) {
+        if (handleExcludeURL(req)) {
             chain.doFilter(request, response);
             return;
         }
