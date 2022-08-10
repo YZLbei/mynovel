@@ -22,6 +22,7 @@ public class ThreadLocalUtil {
 
     /**
      * 设置当前应该访问的模板目录
+     * // TODO: 2022/8/10 传入的是什么 
      * */
     public static void setTemplateDir(String dir){
         templateDir.set(dir);

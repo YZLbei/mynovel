@@ -23,8 +23,10 @@ public class JwtTokenUtil {
 
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
+    // TODO: 2022/8/10 是什么 
     @Value("${jwt.secret}")
     private String secret;
+    // TODO: 2022/8/10 是什么 
     @Value("${jwt.expiration}")
     private Long expiration;
 

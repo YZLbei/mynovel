@@ -19,6 +19,7 @@ import java.util.Map;
 @Configuration
 public class FilterConfig{
 
+    //来自配置文件
     @Value("${pic.save.path}")
     private String picSavePath;
 
