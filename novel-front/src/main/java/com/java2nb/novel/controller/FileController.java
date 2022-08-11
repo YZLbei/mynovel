@@ -39,6 +39,8 @@ public class FileController {
 
     /**
      * 生成验证码
+     * // TODO: 2022/8/11 在哪里用到 
+     * // TODO: 2022/8/11 被谁调用 
      */
     @GetMapping(value = "getVerify")
     public void getVerify(HttpServletRequest request, HttpServletResponse response) {
@@ -59,6 +61,8 @@ public class FileController {
 
     /**
      * 图片上传
+     * // TODO: 2022/8/11 干嘛用的 
+     * // TODO: 2022/8/11 被谁调用 
      * @return
      */
     @SneakyThrows
@@ -66,6 +70,7 @@ public class FileController {
     @PostMapping("/picUpload")
     RestResult<String> upload(@RequestParam("file") MultipartFile file) {
         Date currentDate = new Date();
+        // TODO: 2022/8/11 具体值是多少 
         String savePath =
                 Constants.LOCAL_PIC_PREFIX + DateUtils.formatDate(currentDate, "yyyy") + "/" +
                         DateUtils.formatDate(currentDate, "MM") + "/" +
@@ -75,6 +80,7 @@ public class FileController {
         String saveFileName = UUIDUtil.getUUID32() + oriName.substring(oriName.lastIndexOf("."));
         File saveFile = new File(picSavePath + savePath, saveFileName);
         if (!saveFile.getParentFile().exists()) {
+            //生成目录
             boolean isSuccess = saveFile.getParentFile().mkdirs();
             if(!isSuccess){
                 throw new BusinessException(ResponseStatus.FILE_DIR_MAKE_FAIL);
