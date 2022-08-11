@@ -90,7 +90,7 @@ public class PageController extends BaseController {
         //加载首页新闻线程
         CompletableFuture<List<News>> newsCompletableFuture = CompletableFuture.supplyAsync(newsService::listIndexNews, threadPoolExecutor);
         model.addAttribute("bookMap", bookCompletableFuture.get());
-        model.addAttribute("newsList", newsCompletableFuture.get());
+        model.addAttribute("newsList", newsCompletableFuture.get());    
         return ThreadLocalUtil.getTemplateDir() + "index";
     }
 
