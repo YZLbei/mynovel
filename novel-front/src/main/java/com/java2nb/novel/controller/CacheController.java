@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 public class CacheController {
-
+    // TODO: 2022/8/11 为什么有密码 
     @Value("${cache.manager.password}")
     private String cacheManagerPass;
 
@@ -38,6 +38,7 @@ public class CacheController {
 
     /**
      * 刷新缓存
+     * // TODO: 2022/8/11 什么时候调用 
      * @param type 缓存类型，1：首页书籍推荐，2：首页新闻，3：首页友情链接
      * */
     @GetMapping("refresh/{pass}/{type}")
