@@ -48,6 +48,7 @@ public class UserController extends BaseController {
         UserDetails userDetails = userService.login(user);
 
         Map<String, Object> data = new HashMap<>(1);
+        // TODO: 2022/8/11 为什么要获取token，token具体值是什么 
         data.put("token", jwtTokenUtil.generateToken(userDetails));
 
         return RestResult.ok(data);
@@ -163,6 +164,7 @@ public class UserController extends BaseController {
 
     /**
      * 添加阅读记录
+     * // TODO: 2022/8/11 阅读记录谁来添加，不是自动的吗 
      * */
     @PostMapping("addReadHistory")
     public RestResult<?> addReadHistory(Long bookId,Long preContentId, HttpServletRequest request) {
