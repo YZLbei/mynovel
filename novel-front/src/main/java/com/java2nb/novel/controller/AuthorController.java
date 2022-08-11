@@ -31,7 +31,7 @@ public class AuthorController extends BaseController{
     private final AuthorService authorService;
 
     private final BookService bookService;
-
+ 
     /**
      * 校验笔名是否存在
      * */
@@ -43,6 +43,7 @@ public class AuthorController extends BaseController{
 
     /**
      * 作家发布小说分页列表查询
+     * // TODO: 2022/8/11 page和PageSize来自哪里 
      * */
     @GetMapping("listBookByPage")
     public RestResult<PageBean<Book>> listBookByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize , HttpServletRequest request){
@@ -162,6 +163,7 @@ public class AuthorController extends BaseController{
 
     /**
      * 修改小说封面
+     * // TODO: 2022/8/11 bookPic是什么 把图片变成了json吗
      */
     @PostMapping("updateBookPic")
     public RestResult<Void> updateBookPic(@RequestParam("bookId") Long bookId,@RequestParam("bookPic") String bookPic,HttpServletRequest request) {
