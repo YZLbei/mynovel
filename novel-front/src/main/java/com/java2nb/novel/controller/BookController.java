@@ -36,7 +36,7 @@ import java.util.Map;
 public class BookController extends BaseController {
 
     private final BookService bookService;
-
+    // TODO: 2022/8/11 这是什么 
     private final RabbitTemplate rabbitTemplate;
 
     private final Map<String, BookContentService> bookContentServiceMap;
@@ -131,7 +131,9 @@ public class BookController extends BaseController {
         Map<String, Object> data = new HashMap<>(2);
         data.put("bookIndexCount", bookService.queryIndexCount(bookId));
         BookIndex bookIndex = bookService.queryBookIndex(lastBookIndexId);
+        // TODO: 2022/8/11 这是什么 
         String lastBookContent = bookContentServiceMap.get(bookIndex.getStorageType()).queryBookContent(bookId,lastBookIndexId).getContent();
+        // TODO: 2022/8/11 为什么只要0，42
         if (lastBookContent.length() > 42) {
             lastBookContent = lastBookContent.substring(0, 42);
         }
@@ -179,6 +181,7 @@ public class BookController extends BaseController {
 
     /**
      * 目录页
+     * // TODO: 2022/8/11 什么时候调用 
      */
     @GetMapping("/queryIndexList")
     public RestResult<PageBean<BookIndex>> indexList(Long bookId, @RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize, @RequestParam(value = "orderBy", defaultValue = "index_num desc") String orderBy) {
