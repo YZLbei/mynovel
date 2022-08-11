@@ -63,7 +63,7 @@ public class PayController extends BaseController {
                     "    \"out_trade_no\":\"" + outTradeNo + "\"," +
                     "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
                     "    \"total_amount\":" + payAmount + "," +
-                    "    \"subject\":\"小说精品屋-plus\"" +
+                    "    \"subject\":\"书海小说网-plus\"" +
                     "  }");
             //调用SDK生成表单
             String form = alipayClient.pageExecute(alipayRequest).getBody();
